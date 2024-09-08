@@ -1,6 +1,9 @@
+import unicodedata
+
+
 class Card:
     def __init__(self, name, CMC,Type,Color,Set,Collector_Number,Rarity,Color_Category,status,Finish,maybeboard,image_URL,image_Back_URL,tags,Notes,MTGO_ID):
-        self.name = name
+        self.name = unicodedata.normalize("NFC", name)
         self.CMC = CMC
         self.Type = Type
         self.Color = Color
@@ -19,7 +22,7 @@ class Card:
 
     def moxfield(self):
         return str("1" + " " + # Prints moxfield
-                self.name + " " +
+                self.name.replace("Ã¶","ö") + " " +
                 "("+ self.Set+')' + " " +
                 self.Collector_Number
                    )

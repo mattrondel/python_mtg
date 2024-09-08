@@ -1,10 +1,14 @@
 import card
 import csv
 
-csv_file = "MishrazzPremodern360cube.csv" # input()
+# Cubecobra to moxfield
+
+print("Csv file:")
+# csv_file = "MishrazzPremodern360cube.csv" # input()
+csv_file = input()
 cards = []
 
-with open(csv_file, "r") as cube_file:
+with open(csv_file, "r", encoding="utf-8") as cube_file:
     newcsv = csv.reader(cube_file)
     next(newcsv) # Removes header
     for each_card in newcsv:
@@ -37,7 +41,12 @@ with open(csv_file, "r") as cube_file:
     moxfield = "" # single string to put into a file
     for card in cards:
         moxfield += card.moxfield() + "\n" # moxfield = moxfield + card.moxfield()
-print(moxfield)
+# print(moxfield)
+
+print("Output name:")
+with open(input(), "w") as output: # read more https://www.w3schools.com/python/python_file_write.asp
+    output.write(moxfield)
+    output.close()
 
 #card = card.Card()
 
