@@ -17,3 +17,10 @@ class Card:
         self.Notes = Notes
         self.MTGO_ID = MTGO_ID
 
+    def moxfield(self):
+        return str("1" + " " + # Prints moxfield
+                self.name + " " +
+                "("+ self.Set+')' + " " +
+                self.Collector_Number
+                   )
+
